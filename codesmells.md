@@ -102,8 +102,8 @@ how would you refactor the code?]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
-
+* The Chicken Class
+* Line number 121-130
 ### Description:
 
 [In your own words, explain how you eliminated the 2D array.]
