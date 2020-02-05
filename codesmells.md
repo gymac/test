@@ -102,11 +102,16 @@ how would you refactor the code?]
 
 ### List of classes and line numbers involved:
 
-* The Chicken Class
-* Line number 121-130
+* The Main Class
+* Line number 55
+* Line number 140-177
+* Line number 208-235
 ### Description:
 
-[In your own words, explain how you eliminated the 2D array.]
+I've created an 1D ArrayList to store Java vanilla Objects without preset size. Then for each object that gets populated in the start(0 method, it is also added into the targetList variable of type ArrayList.
+
+In this way, the targetList is no longer sparse since the row and column information is no longer needed here as index, since rows and columns information are already attributes of each farm Object. Similarly,in
+line 208-235, the drawShape method, it simply needs to loop through the arraylist in one turn and draw each object.
 
 
 ============================================================
