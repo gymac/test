@@ -5,26 +5,28 @@ easy to learn. Hash marks (the number sign) indicate headers. Asterisks indicate
 
 # List of code smells
 
-## Code Smell 1: [Write the code smell name]
+## Code Smell 1: [Main class has a very long start method]
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: [Long Method]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+* Class Main
+* Line number 43-108.
 
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+This method contains a very large number of lines of codes(nearly 90 lines). And a lot of codes are simply repated logic with different values applied.
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
+For the line 50-75 in the original Main.java, they are simply doing some data populating work, thus I need to take them out and create a separate method containing these lines.
 
 ### Explanation
 
-[How does your solution get rid of the code smell? Write your explanation here.]
+Firstly, I group these lines of code into a standalone method named populateFarmObjects().
+Secondly, I only need to make a simple call to populateFarmObjects() now in the start() method.
+Finally, there are several repeated code in the populateFarmObjects() as well as some codes that are being overriden by later codes, thus I removed those unnecessary code as well.
 
 ============================================================
 
