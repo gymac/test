@@ -115,11 +115,14 @@ how would you refactor the code?]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+* The Chicken Class
+* Line number 121-130
 
 ### Description:
 
-[In your own words, explain how you eliminated the ArrayIndexOutOfBoundsException.]
+The ArrayOutOfBoundsException occured basically since the integer r or c, which are used to track the current row or column index, goes out of the predefined 48*10 matrix limit, and the very correct timing when this occurs is when we try to move a Chicken, so the new row/column index calculated failed to take this predefined limit into account.
+
+Thus, the solution is to to a double checking whenever the column or row index is updated. So if it goes beyond upper limit 47, then restart from 0; if it goes lower then 0, then restart from the upper limit 47.
 
 
 ============================================================
