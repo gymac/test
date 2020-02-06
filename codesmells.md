@@ -12,7 +12,7 @@ easy to learn. Hash marks (the number sign) indicate headers. Asterisks indicate
 ### List of classes and line numbers involved:
 
 * Class Main
-* Line number 43-108.
+* Line number 110-153.
 
 ### Description:
 
@@ -24,55 +24,56 @@ For the line 50-75 in the original Main.java, they are simply doing some data po
 
 ### Explanation
 
-Firstly, I group these lines of code into a standalone method named populateFarmObjects().
-Secondly, I only need to make a simple call to populateFarmObjects() now in the start() method.
-Finally, there are several repeated code in the populateFarmObjects() as well as some codes that are being overriden by later codes, thus I removed those unnecessary code as well.
-
+Firstly, I group these lines of code into a standalone method named populateFarmObjectsList().
+Secondly, I only need to make a simple call to populateFarmObjectsList() now in the start() method.
+Finally, there are several repeated code in the populateFarmObjectsList() as well as some codes that are being overriden by later codes, thus I removed those unnecessary code as well.
+Also, since the codes all do the same thing with different objects, another utility method is extracted:populateFarmObject(FarmObject fo,int c, int r). Then well only need to pass the object and coordinate information to this method.
 ============================================================
 
-## Code Smell 2: [Write the code smell name]
+## Code Smell 2: [A very long method contains too much logic]
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: [Long method]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+* Class main
+* Line number 66-106
 
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+The start() method in Main class should only consist of logics that does game prepartion, but it also contains a big chunk of closure code that does game loop event handling.
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
+Move all the game loop handling logic into a separate method called gameLoop(GraphicsContext gc), and it will does all the event watching throughout the course of the game.
+Also, a parameter should be supplied in the start() method, which is the GraphicContext for rendering.
 
 ### Explanation
 
-[How does your solution get rid of the code smell? Write your explanation here.]
+Thus the game loop logic detail is no longer bothered with start() method, the start() method only needs to register the handler when program initiates.
 
 ============================================================
 
-## Code Smell 3: [Write the code smell name]
+## Code Smell 3: [More constants]
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: [Primitive Obsession]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+* Human class.
+* Line number 17.
 
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+This class utilized a fixed length 2D array, since this dimensional information if of use in many places in the whole project. But the array is initialzed with number as its size.
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
+Introduced two integer constants rows and columns in the Human class, and it is defined as public so other classes can access this dimensional information.
 
 ### Explanation
 
-[How does your solution get rid of the code smell? Write your explanation here.]
+Once the 2d array needs to adjust its size, we only need to update these two constants, while in the old style, we need to dig into the code the fix everywhere that hardcoded the array size.
 
 ============================================================
 
