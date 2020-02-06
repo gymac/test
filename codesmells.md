@@ -138,10 +138,11 @@ Thus, the solution is to to a double checking whenever the column or row index i
 ## New Farm Item
 
 ### The name of the class(es) that provide(s) functionality for your new farm item:
-
+The class is another subclass of the FarmObject class and is named Cat.
+It has all basic funcionalities like move or gets drawed on grahics and it also can steal eggs that layed by chickens.
 
 ### Description:
 
-[Explain how your new farm item interacts with the rest of the farm.]
+In the move() method of the Cat Class, it will use a random variable to make actions, when the random matches threshould, then it will check if there is any egg and get the egg then steals it.
 
 ============================================================
