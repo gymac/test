@@ -77,26 +77,32 @@ Once the 2d array needs to adjust its size, we only need to update these two con
 
 ============================================================
 
-## Code Smell 4: [Write the code smell name]
+## Code Smell 4: [A lot of repated codes in serveral classes]
 
-### Code Smell Category: [Write the code smell category name]
+### Code Smell Category: [Data Clumps]
 
 ### List of classes and line numbers involved:
 
-* [Write a class and list of line numbers, one class per asterisk, that describe the smell]
+* Chicken class.
+* Line number 7-10.
+
+* Pig class.
+* Line number 7-10.
+
+* Human class.
+* Line number 7-10.
 
 ### Description:
 
-[In your own words, explain how the description of the code smell applies to this particular code.]
+The three clasess Chicken, Pig and Human all represent farm objects and contain quite a lot of identical variables like r, c, and column.
 
 ### Solution:
 
-[In your own words, explain how you might solve this code smell:
-how would you refactor the code?]
+We moved the definition of these variables into a super class called FarmObject, and make Chicken, Pig and Human classes all extend this super class, thus inheritance is deployed and data redundancy and clumps is eliminated.
 
 ### Explanation
 
-[How does your solution get rid of the code smell? Write your explanation here.]
+In this way, the FarmObject will handle all the basic attributes for any FarmObject like coordinate information and color etc, the specific object, for example, Pig, will only need to add its specific attributes if needed, and only need to focus on its own logic in playing around in the farm for Pigs.
 
 ============================================================
 
